@@ -1,4 +1,4 @@
-package seals.demo;
+package seals.demo.controllers;
 
 import java.util.HashMap;
 import java.util.Map;
