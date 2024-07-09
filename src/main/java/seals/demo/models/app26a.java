@@ -7,6 +7,8 @@ import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -23,8 +25,10 @@ public class app26a {
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
     private Long id;
-    private String status;
-    private String applicationType;
+    @Enumerated(EnumType.STRING)
+    private applicationStatus status;
+    @Enumerated(EnumType.STRING)
+    private applicationType applicationType;
     private String address;
     private String city;
     private String state;
@@ -40,11 +44,11 @@ public class app26a {
         return this.id;
     }
 
-    public String getStatus() {
+    public applicationStatus getStatus() {
         return this.status;
     }
 
-    public String getApplicationType() {
+    public applicationType getApplicationType() {
         return this.applicationType;
     }
 

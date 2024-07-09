@@ -5,6 +5,8 @@ import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Entity;
+import jakarta.persistence.EnumType;
+import jakarta.persistence.Enumerated;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
@@ -21,7 +23,8 @@ public class document {
     @Id
     @GeneratedValue(strategy=GenerationType.AUTO)
     private Long id;
-    private String fileType;
+    @Enumerated(EnumType.STRING)
+    private fileType fileType;
     private String fileName;
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "uploadedBy", referencedColumnName = "id")
@@ -34,7 +37,7 @@ public class document {
         return this.id;
     }
 
-    public String getFileType() {
+    public fileType getFileType() {
         return this.fileType;
     }
 

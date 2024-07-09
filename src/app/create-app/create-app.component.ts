@@ -43,12 +43,12 @@ import { Router } from '@angular/router';
 })
 export class CreateAppComponent {
   appTypes = [
-    "Myself", "For Another", "Company", "Public Agency", "Jointly Owned"
+    "Myself", "For_Another", "Company", "Public_Agency", "Jointly_Owned"
   ];
 
   form = new FormGroup({
     applicationType: new FormControl("Myself"),
-    status: new FormControl("in progress"),
+    status: new FormControl("In_Progress"),
     address: new FormControl(""),
     city: new FormControl(""),
     state: new FormControl(""),
