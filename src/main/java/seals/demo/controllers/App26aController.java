@@ -26,7 +26,7 @@ public class App26aController {
         return (List<app26a>) this.app26aRepository.findAll();
     }
 
-    @PostMapping(value = "/application", consumes = "application/x-www-form-urlencoded")
+    @PostMapping("/application")
     public app26a createApp26a(@RequestBody app26a app) {
         app.setRequestor(userRepository.findById(Long.parseLong("1")).get());
         app26aRepository.save(app);

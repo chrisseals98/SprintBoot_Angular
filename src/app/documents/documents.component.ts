@@ -17,9 +17,9 @@ import { ActivatedRoute } from '@angular/router';
       <tbody>
         <tr *ngFor="let document of documents">
           <td>{{document.id}}</td>
-          <td>{{document.file_Type}}</td>
-          <td>{{document.file_Name}}</td>
-          <td>{{document.uploader.first_Name}}, {{document.uploader.last_Name}}</td>
+          <td>{{document.fileType}}</td>
+          <td>{{document.fileName}}</td>
+          <td>{{document.uploader.firstName}}, {{document.uploader.lastName}}</td>
         </tr>
         <tr *ngIf="documents.length == 0">
           No documents have been uploaded for this application

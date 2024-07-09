@@ -19,9 +19,9 @@ import { Component } from '@angular/core';
       <tbody>  
         <tr *ngFor="let app of apps"> 
           <td>{{ app.id }}</td>  
-          <td>{{ app.application_type }}</td>
+          <td>{{ app.applicationType }}</td>
           <td>{{ app.status }}</td>  
-          <td>{{ app.requestor.first_Name }}, {{ app.requestor.last_Name }}</td>  
+          <td>{{ app.requestor.firstName }}, {{ app.requestor.lastName }}</td>  
           <td>{{ app.latitude }}, {{ app.longitude }}</td>  
           <td>{{ app.address }}, {{ app.city }}, {{ app.state }}</td>
           <td>
@@ -35,7 +35,6 @@ import { Component } from '@angular/core';
         </tr> 
       </tbody>  
     </table>
-    <button class="btn btn-light" type="button" [routerLink]="['/application']">Create Application</button>
   `,
   styles: [
   ]

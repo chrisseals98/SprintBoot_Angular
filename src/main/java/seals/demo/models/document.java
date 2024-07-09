@@ -11,22 +11,20 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToOne;
-import jakarta.persistence.Table;
 
 @Entity
-@Table(name="documents")
 @JsonIdentityInfo(
   generator = ObjectIdGenerators.PropertyGenerator.class, 
   property = "id")
 public class document {
     
     @Id
-    @GeneratedValue(strategy=GenerationType.TABLE)
+    @GeneratedValue(strategy=GenerationType.AUTO)
     private Long id;
-    private String file_type;
-    private String file_name;
+    private String fileType;
+    private String fileName;
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "uploaded_by", referencedColumnName = "id")
+    @JoinColumn(name = "uploadedBy", referencedColumnName = "id")
     private user uploader;
     @ManyToOne
     @JoinColumn(name="application", nullable=false, referencedColumnName = "id")
@@ -36,12 +34,12 @@ public class document {
         return this.id;
     }
 
-    public String getFile_Type() {
-        return this.file_type;
+    public String getFileType() {
+        return this.fileType;
     }
 
-    public String getFile_Name() {
-        return this.file_name;
+    public String getFileName() {
+        return this.fileName;
     }
 
     public user getUploader() {

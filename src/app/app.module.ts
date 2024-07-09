@@ -8,6 +8,7 @@ import { AppsComponent } from './apps/apps.component';
 import { HomeComponent } from './home/home.component';
 import { DocumentsComponent } from './documents/documents.component';
 import { CreateAppComponent } from './create-app/create-app.component';
+import { ReactiveFormsModule } from "@angular/forms";
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -27,6 +28,7 @@ const routes: Routes = [
     BrowserModule,
     RouterModule.forRoot(routes),
     HttpClientModule,
+    ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]

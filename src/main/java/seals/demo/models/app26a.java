@@ -3,7 +3,6 @@ package seals.demo.models;
 import java.util.Set;
 
 import com.fasterxml.jackson.annotation.JsonIdentityInfo;
-import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.ObjectIdGenerators;
 
 import jakarta.persistence.CascadeType;
@@ -14,28 +13,25 @@ import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.OneToOne;
-import jakarta.persistence.Table;
 
 @Entity
-@Table(name="app26a")
 @JsonIdentityInfo(
   generator = ObjectIdGenerators.PropertyGenerator.class, 
   property = "id")
 public class app26a {
     
     @Id
-    @GeneratedValue(strategy=GenerationType.TABLE)
+    @GeneratedValue(strategy=GenerationType.AUTO)
     private Long id;
     private String status;
-    @JsonProperty("application_type")
-    private String application_type;
+    private String applicationType;
     private String address;
     private String city;
     private String state;
     private Double latitude;
     private Double longitude;
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "request_for", referencedColumnName = "id")
+    @JoinColumn(name = "requestFor", referencedColumnName = "id")
     private user requestor;
     @OneToMany(cascade = CascadeType.ALL, mappedBy="application", orphanRemoval = true)
     private Set<document> documents;
@@ -48,8 +44,8 @@ public class app26a {
         return this.status;
     }
 
-    public String getApplication_type() {
-        return this.application_type;
+    public String getApplicationType() {
+        return this.applicationType;
     }
 
     public String getAddress() {

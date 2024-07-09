@@ -1,35 +1,38 @@
+import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
+import { FormControl, FormGroup } from '@angular/forms';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-create-app',
   template: `
   <div class="col-12">
-    <form class="col-md-6" id="form">
+    <form class="col-md-6" id="form" [formGroup]="form">
       <div>
         <label class="form-label">Application Type</label>
-        <select id="application-type" name="application-type" class="form-select">
+        <select id="applicationType" name="applicationType" class="form-select" formControlName="applicationType">
           <option *ngFor='let type of appTypes'>{{type}}</option>
         </select>
       </div>
       <div>
         <label for="address" class="form-label">Address</label>
-        <input id="address" name="address" type="text" class="form-control">
+        <input id="address" name="address" type="text" class="form-control" formControlName="address">
       </div>
       <div>
         <label for="city" class="form-label">City</label>
-        <input id="city" name="city" type="text" class="form-control">
+        <input id="city" name="city" type="text" class="form-control" formControlName="city">
       </div>
       <div>
         <label for="state" class="form-label">State</label>
-        <input id="state" name="state" type="text" class="form-control">
+        <input id="state" name="state" type="text" class="form-control" formControlName="state">
       </div>
       <div>
-        <label for="lat" class="form-label">Latitude</label>
-        <input id="lat" name="lat" type="number" class="form-control">
+        <label for="latitude" class="form-label">Latitude</label>
+        <input id="latitude" name="latitude" type="number" class="form-control" formControlName="latitude">
       </div>
       <div>
-        <label for="long" class="form-label">Longitude</label>
-        <input id="long" name="long" type="number" class="form-control">
+        <label for="longitude" class="form-label">Longitude</label>
+        <input id="longitude" name="longitude" type="number" class="form-control" formControlName="longitude">
       </div>
       <button type="button" class="btn btn-light mt-3" (click)="onSubmit()">Submit</button>
     </form>
@@ -43,7 +46,19 @@ export class CreateAppComponent {
     "Myself", "For Another", "Company", "Public Agency", "Jointly Owned"
   ];
 
+  form = new FormGroup({
+    applicationType: new FormControl("Myself"),
+    status: new FormControl("in progress"),
+    address: new FormControl(""),
+    city: new FormControl(""),
+    state: new FormControl(""),
+    latitude: new FormControl(""),
+    longitude: new FormControl("")
+  });
+
+  constructor(private http: HttpClient, private router: Router) {}
+
   onSubmit() {
-      //need to send form here
+      this.http.post("application", this.form.value).subscribe(_ => this.router.navigateByUrl(""));
   }
 }
