@@ -3,6 +3,8 @@ package seals.demo.controllers;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 
 import seals.demo.models.app26a;
@@ -11,6 +13,7 @@ import seals.demo.repositories.userRepository;
 
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 
@@ -31,5 +34,11 @@ public class App26aController {
         app.setRequestor(userRepository.findById(Long.parseLong("1")).get());
         app26aRepository.save(app);
         return app;
+    }
+
+    @DeleteMapping("/application")
+    public ResponseEntity<String> deleteApp26a(@RequestParam Long id) {
+        this.app26aRepository.deleteById(id);
+        return ResponseEntity.noContent().build();
     }
 }

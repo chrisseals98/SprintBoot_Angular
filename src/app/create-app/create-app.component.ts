@@ -6,7 +6,7 @@ import { Router } from '@angular/router';
 @Component({
   selector: 'app-create-app',
   template: `
-  <div class="col-12">
+  <div class="container">
     <form class="col-md-6" id="form" [formGroup]="form">
       <div>
         <label class="form-label">Application Type</label>

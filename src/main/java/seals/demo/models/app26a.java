@@ -23,7 +23,7 @@ import jakarta.persistence.OneToOne;
 public class app26a {
     
     @Id
-    @GeneratedValue(strategy=GenerationType.AUTO)
+    @GeneratedValue(strategy=GenerationType.SEQUENCE)
     private Long id;
     @Enumerated(EnumType.STRING)
     private applicationStatus status;
@@ -34,7 +34,7 @@ public class app26a {
     private String state;
     private Double latitude;
     private Double longitude;
-    @OneToOne(cascade = CascadeType.ALL)
+    @OneToOne
     @JoinColumn(name = "requestFor", referencedColumnName = "id")
     private user requestor;
     @OneToMany(cascade = CascadeType.ALL, mappedBy="application", orphanRemoval = true)

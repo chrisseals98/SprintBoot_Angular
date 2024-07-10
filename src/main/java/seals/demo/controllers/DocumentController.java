@@ -30,5 +30,4 @@ public class DocumentController {
         List<document> list = filteredStream.toList();
         return list;
     }
-    
 }
