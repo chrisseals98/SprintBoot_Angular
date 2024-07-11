@@ -2,7 +2,6 @@ package seals.demo.controllers;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestParam;
 
 
 /*
@@ -11,9 +10,9 @@ import org.springframework.web.bind.annotation.RequestParam;
 @Controller
 public class RouteController {
 
-    @GetMapping("/test")
+    @GetMapping("/login")
     public String getMethodName() {
-        return "test.html";
+        return "login.html";
     }
 
     @GetMapping(value = "/{path:[^\\.]*}")

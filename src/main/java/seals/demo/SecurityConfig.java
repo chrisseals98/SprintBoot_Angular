@@ -5,7 +5,6 @@ import java.util.function.Supplier;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.web.SecurityFilterChain;
@@ -31,20 +30,11 @@ public class SecurityConfig {
 	public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
 		http
             .authorizeHttpRequests(req -> req
-                // .requestMatchers("/test").permitAll()
-                // .requestMatchers(
-                //     "/home",
-                //     "/application",
-                //     "/applications",
-                //     "/documents",
-                //     "/documents/*",
-                //     "/users",
-                //     "/user"
-                // ).authenticated()
+                .requestMatchers("/login", "/login.html").permitAll()
                 .anyRequest().authenticated()
             )
-			//.oauth2Login(oauth2 -> oauth2.loginPage("/test"))
-            .oauth2Login(Customizer.withDefaults())
+			.oauth2Login(oauth2 -> oauth2.loginPage("/login"))
+			.exceptionHandling(exceptionHandling -> exceptionHandling.accessDeniedPage("/login"))
 			.csrf((csrf) -> csrf
 				.csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse())   
 				.csrfTokenRequestHandler(new SpaCsrfTokenRequestHandler())            

@@ -11,8 +11,7 @@ import { CreateAppComponent } from './create-app/create-app.component';
 import { ReactiveFormsModule } from "@angular/forms";
 
 const routes: Routes = [
-  { path: '', redirectTo: "home" },
-  { path: "home", component: HomeComponent },
+  { path: '', component: HomeComponent },
   { path: "documents", component: DocumentsComponent },
   { path: "application", component: CreateAppComponent }
 ];
