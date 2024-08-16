@@ -1,0 +1,15 @@
+version: '3.4'
+services:
+  spring-app:
+    image: spring-app-no-auth
+    environment:
+      - MYSQL_HOST=revaPOC
+    ports:
+      - 8080:8080
+    networks:
+      - spring-test
+networks:
+  default:
+  spring-test:
+    external: true
+    
