@@ -15,8 +15,8 @@ public class RouteController {
         return "login.html";
     }
 
-    @GetMapping(value = "/{path:[^\\.]*}")
-    public String redirect() {
-        return "forward:/";
-    }
+    // @GetMapping(value = "/{path:[^\\.]*}")
+    // public String redirect() {
+    //     return "forward:/";
+    // }
 }

@@ -4,3 +4,12 @@
 body {
     margin: 10px;
 }
+
+.row {
+    display: flex;
+    gap: 30px;
+}
+
+.restrict-width {
+    width: fit-content;
+}

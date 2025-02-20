@@ -1,5 +1,6 @@
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
+import { LoadingService } from '../loading.service';
 
 @Component({
   selector: 'app-apps',
@@ -48,13 +49,15 @@ import { Component } from '@angular/core';
 export class AppsComponent {
   apps: any[] = [];
 
-  constructor(private http: HttpClient) {
-    this.http.get<any[]>("applications").subscribe(response => {
+  constructor(private http: HttpClient, private loadingService: LoadingService) {
+    loadingService.showLoading();
+    this.http.get<any[]>("/application").subscribe(response => {
       this.apps = response;
+      this.loadingService.hideLoading();
     })
   }
 
   delete(appId: number) {
-    this.http.delete("application", { params: { id: appId } }).subscribe(_ => location.reload());
+    this.http.delete("/application", { params: { id: appId } }).subscribe(_ => location.reload());
   }
 }

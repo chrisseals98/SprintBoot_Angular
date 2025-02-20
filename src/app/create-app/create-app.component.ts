@@ -59,6 +59,6 @@ export class CreateAppComponent {
   constructor(private http: HttpClient, private router: Router) {}
 
   onSubmit() {
-      this.http.post("application", this.form.value).subscribe(_ => this.router.navigateByUrl(""));
+      this.http.post("/application", this.form.value).subscribe(_ => this.router.navigateByUrl(""));
   }
 }

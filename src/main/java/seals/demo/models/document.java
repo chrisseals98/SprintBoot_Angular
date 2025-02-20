@@ -26,12 +26,22 @@ public class document {
     @Enumerated(EnumType.STRING)
     private fileType fileType;
     private String fileName;
+    private String status;
     @OneToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "uploadedBy", referencedColumnName = "id")
     private user uploader;
     @ManyToOne
     @JoinColumn(name="application", nullable=false, referencedColumnName = "id")
     private app26a application;
+
+    public document() {}
+
+    public document(String envelopeId, fileType fileType, user uploader, app26a application) {
+        this.fileName = envelopeId;
+        this.fileType = fileType;
+        this.uploader = uploader;
+        this.application = application;
+    }
 
     public Long getId() {
         return this.id;
@@ -51,5 +61,13 @@ public class document {
 
     public app26a getApplication() {
         return this.application;
+    }
+
+    public String getStatus() {
+        return this.status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
     }
 }

@@ -1,5 +1,7 @@
 package seals.demo.models;
 
+import java.util.Map;
+
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
@@ -35,7 +37,19 @@ public class user {
         return this.lastName;
     }
 
+    public String getFullName() {
+        return this.firstName + " " + this.lastName;
+    }
+
     public String getEmail() {
         return this.email;
+    }
+
+    public Map<String, String> getMap() {
+        //just testing here
+        return Map.of(
+            "Applicant Name and Address", getFullName() + "\n123 blueberry lane",
+            "Email Address", getEmail(),
+            "Name of Applicant Printed", getFullName());
     }
 }

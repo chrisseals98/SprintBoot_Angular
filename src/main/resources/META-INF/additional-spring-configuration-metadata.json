@@ -1,0 +1,37 @@
+{"properties": [
+  {
+    "name": "docusign.api.account-id",
+    "type": "java.lang.String",
+    "description": "A description for 'docusign.api.account-id'"
+  },
+  {
+    "name": "docusign.template-id",
+    "type": "java.lang.String",
+    "description": "A description for 'docusign.template-id'"
+  },
+  {
+    "name": "docusign.basepath",
+    "type": "java.lang.String",
+    "description": "A description for 'docusign.basepath'"
+  },
+  {
+    "name": "docusign.integration-key",
+    "type": "java.lang.String",
+    "description": "A description for 'docusign.integration-key'"
+  },
+  {
+    "name": "docusign.user-id",
+    "type": "java.lang.String",
+    "description": "A description for 'docusign.user-id'"
+  },
+  {
+    "name": "docusign.scopes",
+    "type": "java.lang.String",
+    "description": "A description for 'docusign.scopes'"
+  },
+  {
+    "name": "docusign.token.expiration",
+    "type": "java.lang.String",
+    "description": "A description for 'docusign.token.expiration'"
+  }
+]}
